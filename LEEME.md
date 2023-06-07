@@ -1,4 +1,0 @@
-# SistemaVotacion
-
-
-TESTING
