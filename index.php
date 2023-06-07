@@ -102,14 +102,12 @@ require_once 'conex.php';
         ?>
       </select><br>
 
-      <label>¿Cómo se enteró de nosotros?</label>
+      <label>¿Cómo se enteró de nosotros?:</label>
       <input type="checkbox" id="web" name="como_se_entero[]" value="web">
       <label for="web">Web</label>
 
       <input type="checkbox" id="tv" name="como_se_entero[]" value="tv">
       <label for="tv">TV</label>
-
-      <br> <!-- Añade un salto de línea -->
 
       <input type="checkbox" id="redes_sociales" name="como_se_entero[]" value="redes_sociales">
       <label for="redes_sociales">Redes Sociales</label>
