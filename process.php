@@ -67,7 +67,14 @@ function validarRut($rut) {
     header('Location: index.php');
     exit;
   }
-  
+
+
+    // Validar el correo electrónico
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        // Correo electrónico no válido, mostrar mensaje de error
+        $error_message .= "El correo electrónico no es válido.<br>";
+    }
+    
 
 
 $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
