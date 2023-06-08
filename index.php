@@ -66,7 +66,6 @@ require_once './DB/conexion.php';
       </select><br>
 
 
-
       <?php
       // Obtener las opciones de las comunas desde la base de datos
       //$sql_comunas = "SELECT id_comuna, nombre_comuna FROM comunas";
