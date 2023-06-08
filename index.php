@@ -36,7 +36,7 @@ require_once './DB/conexion.php';
     <form id="votingForm" action="process.php" method="POST">
 
       <label for="nombre">Nombre y Apellido:</label>
-      <input type="text" id="nombre_apellido" name="nombre_apellido" required><br>
+      <input type="text" id="nombre_apellido" name="nombre_apellido"><br>
 
       <label for="alias">Alias:</label>
       <input type="text" id="alias" name="alias"><br>
@@ -50,12 +50,11 @@ require_once './DB/conexion.php';
 
       <?php
       // Obtener las opciones de las regiones desde la base de datos
-      $regionSeleccionada = "";
       $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
       $result_regiones = $conn->query($sql_regiones);
       ?>
       <label for="region">Región:</label>
-      <select id="region" name="region" required>
+      <select id="region" name="region">
         <option value="">Selecciona una región</option>
         <?php
         if ($result_regiones->num_rows > 0) {
@@ -72,11 +71,11 @@ require_once './DB/conexion.php';
       $sql_comunas = "Select c.comuna_id, c.comuna_nombre
       From comunas c
       Inner Join provincias p On p.provincia_id = c.provincia_id
-      Where p.region_id = ".$valor;
+      Where p.region_id = 7";
       $result_comunas = $conn->query($sql_comunas);
       ?>
       <label for="comuna">Comuna:</label>
-      <select id="comuna" name="comuna" required>
+      <select id="comuna" name="comuna" >
         <option value="">Selecciona una comuna</option>
         <?php
         if ($result_comunas->num_rows > 0) {
@@ -94,7 +93,7 @@ require_once './DB/conexion.php';
     ?>
 
       <label for="candidato">Candidato:</label>
-      <select id="candidato" name="candidato" required>
+      <select id="candidato" name="candidato">
         <option value="">Selecciona un candidato</option>
         <?php
             if ($result_candidatos->num_rows > 0) {
@@ -106,16 +105,16 @@ require_once './DB/conexion.php';
       </select><br>
 
       <label>¿Cómo se enteró de nosotros?:</label>
-      <input type="checkbox" id="web" name="como_se_entero" value="web">
+      <input type="checkbox" id="web" name="como_se_entero[]" value="web">
       <label for="web">Web</label>
 
-      <input type="checkbox" id="tv" name="como_se_entero" value="tv">
+      <input type="checkbox" id="tv" name="como_se_entero[]" value="tv">
       <label for="tv">TV</label>
 
-      <input type="checkbox" id="redes_sociales" name="como_se_entero" value="redes_sociales">
+      <input type="checkbox" id="redes_sociales" name="como_se_entero[]" value="redes_sociales">
       <label for="redes_sociales">Redes Sociales</label>
 
-      <input type="checkbox" id="amigo" name="como_se_entero" value="amigo">
+      <input type="checkbox" id="amigo" name="como_se_entero[]" value="amigo">
       <label for="amigo">Amigo</label><br>
 
       <button type="submit">Votar</button>
