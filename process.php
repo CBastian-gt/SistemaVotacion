@@ -11,6 +11,31 @@ $comuna = $_POST["comuna"];
 $candidato = $_POST["candidato"];
 $como_se_entero = $_POST["como_se_entero"];
 
+
+// Función para validar el alias
+function validarAlias($alias) {
+    // Verificar la longitud del alias
+    if (strlen($alias) <= 5) {
+      return false;
+    }
+  
+    // Verificar si contiene letras y números
+    if (!preg_match('/[a-zA-Z]/', $alias) || !preg_match('/[0-9]/', $alias)) {
+      return false;
+    }
+  
+    return true;
+  }
+
+  // Validar el alias
+  if (!validarAlias($alias)) {
+    echo "El alias ingresado no es válido";
+    header('Location: index.php');
+    exit;
+  }
+
+
+
 function validarRut($rut) {
     $rut = preg_replace('/[^0-9kK]/', '', $rut);
   
@@ -37,10 +62,9 @@ function validarRut($rut) {
     return $dv == $dvEsperado;
   }
 
-
   if (!validarRut($rut)) {
     echo "El RUT ingresado no es válido";
-    // Aquí puedes redirigir al usuario a la página anterior o mostrar un mensaje de error
+    header('Location: index.php');
     exit;
   }
   
