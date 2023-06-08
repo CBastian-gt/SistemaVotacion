@@ -14,3 +14,11 @@ Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma s
 - Registro de la fuente de referencia mediante checkbox.
 - Validaciones en tiempo real utilizando JavaScript e PHP.
 - Interfaz amigable y responsive para una mejor experiencia de usuario.
+
+## Créditos
+
+Este proyecto fue desarrollado por Carlos Gallardo.
+
+## Contacto
+
+Si tienes alguna pregunta o sugerencia, puedes contactarme en cbastian.toro@gmail.com.
