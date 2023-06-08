@@ -71,13 +71,16 @@ if (!is_array($como_se_entero)) {
 
 // Validar como_se_entero
 if (count($como_se_entero) < 2) {
-    echo "Debes seleccionar al menos dos opciones en \"Como se enteró de Nosotros\".";
+    echo "Por favor, selecciona al menos dos opciones en \"Como se enteró de Nosotros\".";
     $valido = false;
 }
 
 if ($valido) {
+
+    // Convertir el array en una cadena separada por comas
+    $como_se_entero_str = implode(", ", $como_se_entero);
     $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
-        VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero')";
+        VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero_str')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Registro insertado correctamente.";
@@ -88,28 +91,28 @@ if ($valido) {
 
 
 function validarRut($rut) {
-    $rut = preg_replace('/[^0-9kK]/', '', $rut);
-  
+    $rut = preg_replace('/[^0-9kK-]/', '', $rut);
+
     if (strlen($rut) < 1) {
-      return false;
+        return false;
     }
-  
+
     $rut = str_pad($rut, 10, '0', STR_PAD_LEFT);
-  
+
     $dv = strtoupper(substr($rut, -1));
-    $numero = substr($rut, 0, strlen($rut) - 1);
-  
+    $numero = substr($rut, 0, strlen($rut) - 2);
+
     $suma = 0;
     $factor = 2;
-  
+
     for ($i = strlen($numero) - 1; $i >= 0; $i--) {
-      $suma += $factor * $numero[$i];
-      $factor = $factor == 7 ? 2 : $factor + 1;
+        $suma += $factor * $numero[$i];
+        $factor = $factor == 7 ? 2 : $factor + 1;
     }
-  
+
     $dvEsperado = 11 - ($suma % 11);
-    $dv = $dv == 'K' ? 10 : $dv;
-  
+    $dvEsperado = ($dvEsperado == 11) ? 0 : (($dvEsperado == 10) ? 'K' : $dvEsperado);
+
     return $dv == $dvEsperado;
   }
 
