@@ -12,7 +12,7 @@ Este archivo contiene las instrucciones necesarias para instalar y configurar el
 1. Clona o descarga el repositorio del proyecto desde [URL del repositorio].
 2. Configura tu entorno de desarrollo para ejecutar PHP 8.2.4.
 3. Importa el archivo formulariovotacion.sql en tu base de datos para crear las tablas necesarias (MySQL).
-4. Abre el archivo de configuración de la base de datos formulariovotacion.sql  y actualiza los datos de conexión con los correspondientes a tu entorno.
+4. Abre el archivo de configuración de la base de datos formulariovotacion.sql y actualiza los datos de conexión con los correspondientes a tu entorno.
 5. Abre el archivo [nombre del archivo principal] y actualiza los valores de configuración necesarios, como la URL base del proyecto.
 6. Abre una terminal y navega hasta el directorio del proyecto.
 7. Ejecuta el siguiente comando para instalar las dependencias del proyecto: composer install
