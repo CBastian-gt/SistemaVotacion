@@ -11,27 +11,40 @@ $comuna = $_POST["comuna"];
 $candidato = $_POST["candidato"];
 $como_se_entero = $_POST["como_se_entero"];
 
-$errors = array(); // Variable para almacenar los mensajes de error
+function validarRut($rut) {
+    $rut = preg_replace('/[^0-9kK]/', '', $rut);
+  
+    if (strlen($rut) < 1) {
+      return false;
+    }
+  
+    $rut = str_pad($rut, 10, '0', STR_PAD_LEFT);
+  
+    $dv = strtoupper(substr($rut, -1));
+    $numero = substr($rut, 0, strlen($rut) - 1);
+  
+    $suma = 0;
+    $factor = 2;
+  
+    for ($i = strlen($numero) - 1; $i >= 0; $i--) {
+      $suma += $factor * $numero[$i];
+      $factor = $factor == 7 ? 2 : $factor + 1;
+    }
+  
+    $dvEsperado = 11 - ($suma % 11);
+    $dv = $dv == 'K' ? 10 : $dv;
+  
+    return $dv == $dvEsperado;
+  }
 
-// Validación de Nombre y Apellido
-if (empty($nombre_apellido)) {
-  $errors[] = "Por favor, ingresa tu Nombre y Apellido.";
-}
 
-// Validación de Alias
-if (strlen($alias) <= 5 || !ctype_alnum($alias)) {
-  $errors[] = "El Alias debe tener al menos 6 caracteres y contener solo letras y números.";
-}
+  if (!validarRut($rut)) {
+    echo "El RUT ingresado no es válido";
+    // Aquí puedes redirigir al usuario a la página anterior o mostrar un mensaje de error
+    exit;
+  }
+  
 
-// Validación de RUT
-if (!preg_match('/^[0-9]{1,2}\.[0-9]{3}\.[0-9]{3}[-][0-9kK]{1}$/', $rut)) {
-  $errors[] = "Por favor, ingresa un RUT válido en formato chileno.";
-}
-
-// Validación de Email
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $errors[] = "Por favor, ingresa un correo electrónico válido.";
-}
 
 $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
         VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero')";
