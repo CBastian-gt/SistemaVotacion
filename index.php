@@ -120,6 +120,8 @@ require_once './DB/conexion.php';
       <button type="submit">Votar</button>
     </form>
   </div>
+
+  
       
   </body>
 
