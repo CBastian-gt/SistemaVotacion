@@ -38,17 +38,18 @@ require_once './DB/conexion.php';
       <input type="text" id="nombre" name="nombre" required><br>
 
       <label for="alias">Alias:</label>
-      <input type="text" id="alias" name="alias" required><br>
+      <input type="text" id="alias" name="alias"><br>
 
       <label for="rut">RUT:</label>
-      <input type="text" id="rut" name="rut" required><br>
+      <input type="text" id="rut" name="rut"><br>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br>
+      <input type="email" id="email" name="email"><br>
 
 
       <?php
       // Obtener las opciones de las regiones desde la base de datos
+      $regionSeleccionada = "";
       $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
       $result_regiones = $conn->query($sql_regiones);
       ?>
@@ -70,7 +71,7 @@ require_once './DB/conexion.php';
       $sql_comunas = "Select c.comuna_id, c.comuna_nombre
       From comunas c
       Inner Join provincias p On p.provincia_id = c.provincia_id
-      Where p.region_id = 1";
+      Where p.region_id = 8";
       $result_comunas = $conn->query($sql_comunas);
       ?>
       <label for="comuna">Comuna:</label>
