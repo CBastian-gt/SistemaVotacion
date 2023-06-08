@@ -31,60 +31,60 @@ require_once 'bd/conexion.php';
 </head>
   <body>
 
-  <div id="formContainer">
-    <h1>Formulario de Votación</h1>
-    <form id="votingForm" action="process.php" method="POST">
+<div id="formContainer">
+  <h1>Formulario de Votación</h1>
+  <form id="votingForm" action="process.php" method="POST">
 
-      <label for="nombre">Nombre y Apellido:</label>
-      <input type="text" id="nombre_apellido" name="nombre_apellido"><br>
+    <label for="nombre">Nombre y Apellido:</label>
+    <input type="text" id="nombre_apellido" name="nombre_apellido"><br>
 
-      <label for="alias">Alias:</label>
-      <input type="text" id="alias" name="alias"><br>
+    <label for="alias">Alias:</label>
+    <input type="text" id="alias" name="alias"><br>
 
-      <label for="rut">RUT:</label>
-      <input type="text" id="rut" name="rut"><br>
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" name="rut"><br>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email"><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br>
 
 
+    <?php
+    // Obtener las opciones de las regiones desde la base de datos
+    $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
+    $result_regiones = $conn->query($sql_regiones);
+    ?>
+    <label for="region">Región:</label>
+    <select id="region" name="region">
+      <option value="">Selecciona una región</option>
       <?php
-      // Obtener las opciones de las regiones desde la base de datos
-      $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
-      $result_regiones = $conn->query($sql_regiones);
-      ?>
-      <label for="region">Región:</label>
-      <select id="region" name="region">
-        <option value="">Selecciona una región</option>
-        <?php
-        if ($result_regiones->num_rows > 0) {
-          while ($row = $result_regiones->fetch_assoc()) {
-            echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
-          }
+      if ($result_regiones->num_rows > 0) {
+        while ($row = $result_regiones->fetch_assoc()) {
+          echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
         }
-        ?>
-      </select><br>
+      }
+      ?>
+    </select><br>
 
 
+    <?php
+    // Obtener las opciones de las comunas desde la base de datos
+    $sql_comunas = "Select c.comuna_id, c.comuna_nombre
+    From comunas c
+    Inner Join provincias p On p.provincia_id = c.provincia_id
+    Where p.region_id = 7";
+    $result_comunas = $conn->query($sql_comunas);
+    ?>
+    <label for="comuna">Comuna:</label>
+    <select id="comuna" name="comuna" >
+      <option value="">Selecciona una comuna</option>
       <?php
-      // Obtener las opciones de las comunas desde la base de datos
-      $sql_comunas = "Select c.comuna_id, c.comuna_nombre
-      From comunas c
-      Inner Join provincias p On p.provincia_id = c.provincia_id
-      Where p.region_id = 7";
-      $result_comunas = $conn->query($sql_comunas);
-      ?>
-      <label for="comuna">Comuna:</label>
-      <select id="comuna" name="comuna" >
-        <option value="">Selecciona una comuna</option>
-        <?php
-        if ($result_comunas->num_rows > 0) {
-          while ($row = $result_comunas->fetch_assoc()) {
-            echo "<option value='" . $row['comuna_id'] . "'>" . $row['comuna_nombre'] . "</option>";
-          }
+      if ($result_comunas->num_rows > 0) {
+        while ($row = $result_comunas->fetch_assoc()) {
+          echo "<option value='" . $row['comuna_id'] . "'>" . $row['comuna_nombre'] . "</option>";
         }
-        ?>
-      </select><br>
+      }
+      ?>
+    </select><br>
 
     <?php
     // Obtener las opciones de los candidatos desde la base de datos
@@ -121,8 +121,5 @@ require_once 'bd/conexion.php';
     </form>
   </div>
 
-  
-      
   </body>
-
 </html>
