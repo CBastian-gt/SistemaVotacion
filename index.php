@@ -31,6 +31,17 @@ require_once './DB/conexion.php';
   <body>
 
   <div id="formContainer">
+
+    <script>
+      function validarFormulario() {
+        var rut = document.getElementById("rut").value;
+        if (!validarRut(rut)) {
+          alert("El RUT ingresado no es válido.");
+          return false; // Evita que se envíe el formulario
+        }
+        return true; // Permite el envío del formulario si todos los campos son válidos
+      }
+    </script>
     <h1>Formulario de Votación</h1>
     <form id="votingForm" action="process.php" method="POST">
 
