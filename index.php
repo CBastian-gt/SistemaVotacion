@@ -48,27 +48,24 @@ require_once 'bd/conexion.php';
     <input type="email" id="email" name="email"><br>
 
 
-    <?php
-    // Obtener las opciones de las regiones desde la base de datos
-    $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
-    $result_regiones = $conn->query($sql_regiones);
-    ?>
     <label for="region">Región:</label>
     <select id="region" name="region">
-      <option value="">Selecciona una región</option>
-      <?php
-      if ($result_regiones->num_rows > 0) {
-        while ($row = $result_regiones->fetch_assoc()) {
-          echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
+        <option value="">Selecciona una región</option>
+        <?php
+        // Obtener las opciones de las regiones desde la base de datos
+        $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
+        $result_regiones = $conn->query($sql_regiones);
+        if ($result_regiones->num_rows > 0) {
+            while ($row = $result_regiones->fetch_assoc()) {
+                echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
+            }
         }
-      }
-      ?>
+        ?>
     </select><br>
 
-
     <label for="comuna">Comuna:</label>
-    <select id="comuna" name="comuna">
-      <option value="">Selecciona una comuna</option>
+    <select id="comuna" name="comuna" disabled>
+        <option value="">Selecciona una comuna</option>
     </select><br>
 
 
