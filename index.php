@@ -2,7 +2,6 @@
 
 require_once './DB/conexion.php';
 
-
 ?>
 
 <!doctype html>
@@ -49,7 +48,6 @@ require_once './DB/conexion.php';
 
 
       <?php
-
       // Obtener las opciones de las regiones desde la base de datos
       $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
       $result_regiones = $conn->query($sql_regiones);
@@ -69,7 +67,10 @@ require_once './DB/conexion.php';
 
       <?php
       // Obtener las opciones de las comunas desde la base de datos
-      $sql_comunas = "SELECT comuna_id, comuna_nombre FROM comunas";
+      $sql_comunas = "Select c.comuna_id, c.comuna_nombre
+      From comunas c
+      Inner Join provincias p On p.provincia_id = c.provincia_id
+      Where p.region_id = 1";
       $result_comunas = $conn->query($sql_comunas);
       ?>
       <label for="comuna">Comuna:</label>
@@ -86,8 +87,8 @@ require_once './DB/conexion.php';
 
     <?php
     // Obtener las opciones de los candidatos desde la base de datos
-    //$sql_candidatos = "SELECT id_candidato, nombre_candidato FROM candidatos";
-    //$result_candidatos = $conn->query($sql_candidatos);
+    $sql_candidatos = "SELECT id_candidato, nombre_candidato FROM candidatos";
+    $result_candidatos = $conn->query($sql_candidatos);
     ?>
 
       <label for="candidato">Candidato:</label>
