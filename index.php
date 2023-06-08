@@ -66,9 +66,9 @@ require_once 'bd/conexion.php';
     </select><br>
 
 
-    <label for="comunas">Comuna:</label>
-    <select id="comunas" name="comunas" disabled>
-      <option value="">Selecciona una región</option>
+    <label for="comuna">Comuna:</label>
+    <select id="comuna" name="comuna">
+      <option value="">Selecciona una comuna</option>
     </select><br>
 
 
