@@ -2,7 +2,8 @@
 
 ## Descripción
 
-Este proyecto es un sistema de votación en línea desarrollado en PHP y MySQL. Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma segura y eficiente.
+Este proyecto es un sistema de votación en línea desarrollado en PHP y MySQL.
+Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma segura y eficiente.
 
 ## Características
 
@@ -16,7 +17,7 @@ Este proyecto es un sistema de votación en línea desarrollado en PHP y MySQL. 
 
 ## Requisitos
 
-- PHP versión 8.4.2.
+- PHP versión 7 en adelante.
 - Base de datos MySQL.
 
 ## Instalación
