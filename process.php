@@ -65,10 +65,17 @@ if (empty($comuna)) {
     $valido = false;
 }
 
+// Validar comuna
+if (empty($candidato)) {
+    echo "Debes seleccionar un candidato \n";
+    $valido = false;
+}
+
 // Convertir a arreglo si es una cadena de texto
 if (!is_array($como_se_entero)) {
     $como_se_entero = [$como_se_entero];
 }
+
 
 // Validar como_se_entero
 if (count($como_se_entero) < 2) {
@@ -77,7 +84,6 @@ if (count($como_se_entero) < 2) {
 }
 
 if ($valido) {
-
     // Convertir el array en una cadena separada por comas
     $como_se_entero_str = implode(", ", $como_se_entero);
     $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
