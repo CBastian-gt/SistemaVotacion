@@ -66,25 +66,11 @@ require_once 'bd/conexion.php';
     </select><br>
 
 
-    <?php
-    // Obtener las opciones de las comunas desde la base de datos
-    $sql_comunas = "Select c.comuna_id, c.comuna_nombre
-    From comunas c
-    Inner Join provincias p On p.provincia_id = c.provincia_id
-    Where p.region_id = 7";
-    $result_comunas = $conn->query($sql_comunas);
-    ?>
-    <label for="comuna">Comuna:</label>
-    <select id="comuna" name="comuna" >
-      <option value="">Selecciona una comuna</option>
-      <?php
-      if ($result_comunas->num_rows > 0) {
-        while ($row = $result_comunas->fetch_assoc()) {
-          echo "<option value='" . $row['comuna_id'] . "'>" . $row['comuna_nombre'] . "</option>";
-        }
-      }
-      ?>
+    <label for="comunas">Comuna:</label>
+    <select id="comunas" name="comunas" disabled>
+      <option value="">Selecciona una región</option>
     </select><br>
+
 
     <?php
     // Obtener las opciones de los candidatos desde la base de datos
