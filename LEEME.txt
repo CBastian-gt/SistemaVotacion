@@ -1,12 +1,27 @@
-## Requisitos
+# Instrucciones de instalación
 
-- PHP versión 7 en adelante.
-- Base de datos MySQL.
+Este archivo contiene las instrucciones necesarias para instalar y configurar el proyecto.
 
-## Instalación
+## Requisitos previos
 
-1. Clona el repositorio en tu entorno local.
-2. Importa el archivo de base de datos `formulariovotacion.sql` en tu servidor MySQL.
-3. Configura los datos de conexión a la base de datos en el archivo `conexion.php`.
-4. Abre el proyecto en tu servidor web local.
-5. ¡Listo! Ahora puedes acceder al sistema de votación.
+- Versión de PHP: 8.2.4.
+- Base de datos: MySQL
+
+## Pasos de instalación
+
+1. Clona o descarga el repositorio del proyecto desde [URL del repositorio].
+2. Configura tu entorno de desarrollo para ejecutar PHP 8.2.4.
+3. Importa el archivo formulariovotacion.sql en tu base de datos para crear las tablas necesarias (MySQL).
+4. Abre el archivo de configuración de la base de datos formulariovotacion.sql  y actualiza los datos de conexión con los correspondientes a tu entorno.
+5. Abre el archivo [nombre del archivo principal] y actualiza los valores de configuración necesarios, como la URL base del proyecto.
+6. Abre una terminal y navega hasta el directorio del proyecto.
+7. Ejecuta el siguiente comando para instalar las dependencias del proyecto: composer install
+8. Ejecuta el servidor web en tu entorno de desarrollo.
+9. Accede al proyecto desde tu navegador web.
+
+## Contacto y soporte
+
+Si tienes alguna pregunta o necesitas ayuda durante la instalación, no dudes en contactarnos en cbastian.toro@gmail.com
+
+
+
