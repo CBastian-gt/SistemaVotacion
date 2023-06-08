@@ -7,12 +7,12 @@ Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma s
 
 ## Características
 
-- Registro de votantes con validación de datos como RUT, nombre y correo electrónico.
+- Registro de votantes con validación de datos como RUT, nombre, correo electrónico y etc..
 - Selección de candidatos para emitir el voto.
 - Opción para elegir la región y comuna del votante.
 - Registro y control de votos para evitar duplicaciones.
 - Registro de la fuente de referencia mediante checkbox.
-- Validaciones en tiempo real utilizando JavaScript.
+- Validaciones en tiempo real utilizando JavaScript e PHP.
 - Interfaz amigable y responsive para una mejor experiencia de usuario.
 
 ## Requisitos
@@ -27,15 +27,6 @@ Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma s
 3. Configura los datos de conexión a la base de datos en el archivo `conexion.php`.
 4. Abre el proyecto en tu servidor web local.
 5. ¡Listo! Ahora puedes acceder al sistema de votación.
-
-## Contribución
-
-Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
-
-1. Realiza un fork del repositorio.
-2. Crea una rama con tu nueva funcionalidad o mejora.
-3. Realiza los cambios necesarios y realiza commits con mensajes descriptivos.
-4. Envía un pull request para revisar tus cambios.
 
 ## Créditos
 
