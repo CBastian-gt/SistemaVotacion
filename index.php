@@ -2,6 +2,9 @@
 
 require_once './DB/conexion.php';
 
+
+phpinfo();
+
 ?>
 
 <!doctype html>
@@ -114,7 +117,7 @@ require_once './DB/conexion.php';
       <input type="checkbox" id="amigo" name="como_se_entero[]" value="amigo">
       <label for="amigo">Amigo</label><br>
 
-      <button type="submit">Enviar Voto</button>
+      <button type="submit">Votar</button>
     </form>
   </div>
       
