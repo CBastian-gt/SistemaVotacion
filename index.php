@@ -3,8 +3,6 @@
 require_once './DB/conexion.php';
 
 
-phpinfo();
-
 ?>
 
 <!doctype html>
