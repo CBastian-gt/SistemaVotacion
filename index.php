@@ -64,7 +64,7 @@ require_once 'bd/conexion.php';
     </select><br>
 
     <label for="comuna">Comuna:</label>
-    <select id="comuna" name="comuna" disabled>
+    <select id="comuna" name="comuna">
         <option value="">Selecciona una comuna</option>
     </select><br>
 
