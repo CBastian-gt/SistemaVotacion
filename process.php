@@ -1,6 +1,6 @@
 <?php
 
-require_once './db/conexion.php';
+require_once 'bd/conexion.php';
 
 $nombre_apellido = $_POST["nombre_apellido"];
 $alias = $_POST["alias"];
