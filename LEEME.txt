@@ -6,15 +6,7 @@
 ## Instalación
 
 1. Clona el repositorio en tu entorno local.
-2. Importa el archivo de base de datos `votacion.sql` en tu servidor MySQL.
+2. Importa el archivo de base de datos `formulariovotacion.sql` en tu servidor MySQL.
 3. Configura los datos de conexión a la base de datos en el archivo `conexion.php`.
 4. Abre el proyecto en tu servidor web local.
 5. ¡Listo! Ahora puedes acceder al sistema de votación.
-
-## Créditos
-
-Este proyecto fue desarrollado por Carlos Gallardo.
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, puedes contactarme en cbastian.toro@gmail.com.
