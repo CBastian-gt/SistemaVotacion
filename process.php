@@ -9,31 +9,38 @@ $email = $_POST["email"];
 $region = $_POST["region"];
 $comuna = $_POST["comuna"];
 $candidato = $_POST["candidato"];
-$como_se_entero = $_POST["como_se_entero"];
+$como_se_entero = isset($_POST["como_se_entero"]) ? $_POST["como_se_entero"] : null;
 
+$valido = true;
 
-// Función para validar el alias
-function validarAlias($alias) {
-    // Verificar la longitud del alias
-    if (strlen($alias) <= 5) {
-      return false;
+// Validar el alias
+if (!validarAlias($alias)) {
+    echo "El alias ingresado no es válido. \n";
+    $valido = false;
+}
+
+if (!validarRut($rut)) {
+    echo "El RUT ingresado no es válido. \n";
+    $valido = false;
+}
+
+// Validar el correo electrónico
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // Correo electrónico no válido, mostrar mensaje de error
+    echo "El correo electrónico no es válido. \n";
+    $valido = false;
+}
+
+if ($valido) {
+    $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
+        VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Registro insertado correctamente.";
+    } else {
+        echo "Error al insertar el registro: " . $conn->error;
     }
-  
-    // Verificar si contiene letras y números
-    if (!preg_match('/[a-zA-Z]/', $alias) || !preg_match('/[0-9]/', $alias)) {
-      return false;
-    }
-  
-    return true;
-  }
-
-  // Validar el alias
-  if (!validarAlias($alias)) {
-    echo "El alias ingresado no es válido";
-    header('Location: index.php');
-    exit;
-  }
-
+}
 
 
 function validarRut($rut) {
@@ -62,26 +69,19 @@ function validarRut($rut) {
     return $dv == $dvEsperado;
   }
 
-  if (!validarRut($rut)) {
-    echo "El RUT ingresado no es válido";
-    header('Location: index.php');
-    exit;
-  }
 
 
-    // Validar el correo electrónico
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        // Correo electrónico no válido, mostrar mensaje de error
-        $error_message .= "El correo electrónico no es válido.<br>";
+  // Función para validar el alias
+function validarAlias($alias) {
+    // Verificar la longitud del alias
+    if (strlen($alias) <= 5) {
+      return false;
     }
-    
-
-
-$sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
-        VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero')";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Registro insertado correctamente.";
-} else {
-    echo "Error al insertar el registro: " . $conn->error;
-}
+  
+    // Verificar si contiene letras y números
+    if (!preg_match('/[a-zA-Z]/', $alias) || !preg_match('/[0-9]/', $alias)) {
+      return false;
+    }
+  
+    return true;
+  }
