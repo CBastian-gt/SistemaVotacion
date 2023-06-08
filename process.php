@@ -14,6 +14,7 @@ $como_se_entero = isset($_POST["como_se_entero"]) ? $_POST["como_se_entero"] : [
 
 $valido = true;
 
+
 if (empty($nombre_apellido)) {
     echo "El nombre y apellido no puede quedar en blanco. \n";
     $valido = false;
@@ -82,6 +83,9 @@ if (count($como_se_entero) < 2) {
     echo "Por favor, selecciona al menos dos opciones en \"Como se enteró de Nosotros\".";
     $valido = false;
 }
+
+
+
 
 if ($valido) {
 
