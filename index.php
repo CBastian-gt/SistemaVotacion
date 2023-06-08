@@ -51,16 +51,16 @@ require_once './DB/conexion.php';
       <?php
 
       // Obtener las opciones de las regiones desde la base de datos
-      //$sql_regiones = "SELECT id_region, nombre_region FROM regiones";
-      //$result_regiones = $conn->query($sql_regiones);
+      $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
+      $result_regiones = $conn->query($sql_regiones);
       ?>
       <label for="region">Región:</label>
-      <select id="region" name="region" required>
+      <select id="region_nombre" name="region_nombre" required>
         <option value="">Selecciona una región</option>
         <?php
         if ($result_regiones->num_rows > 0) {
           while ($row = $result_regiones->fetch_assoc()) {
-            echo "<option value='" . $row['id_region'] . "'>" . $row['nombre_region'] . "</option>";
+            echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
           }
         }
         ?>
@@ -69,16 +69,16 @@ require_once './DB/conexion.php';
 
       <?php
       // Obtener las opciones de las comunas desde la base de datos
-      //$sql_comunas = "SELECT id_comuna, nombre_comuna FROM comunas";
-      //$result_comunas = $conn->query($sql_comunas);
+      $sql_comunas = "SELECT comuna_id, comuna_nombre FROM comunas";
+      $result_comunas = $conn->query($sql_comunas);
       ?>
       <label for="comuna">Comuna:</label>
-      <select id="comuna" name="comuna" required>
+      <select id="comuna_nombre" name="comuna_nombre" required>
         <option value="">Selecciona una comuna</option>
         <?php
         if ($result_comunas->num_rows > 0) {
           while ($row = $result_comunas->fetch_assoc()) {
-            echo "<option value='" . $row['id_comuna'] . "'>" . $row['nombre_comuna'] . "</option>";
+            echo "<option value='" . $row['comuna_id'] . "'>" . $row['comuna_nombre'] . "</option>";
           }
         }
         ?>
