@@ -3,7 +3,7 @@ LEEME.TXT - Instrucciones de Instalación
 =============================
 
 Versión de PHP: 8.2.4
-Base de datos: MySQL
+Base de datos: MariaDB 10.4.28
 
 1. Requisitos previos:
    - Asegúrate de tener instalado PHP 8.2.4 en tu servidor. Puedes descargar la última versión de PHP desde el sitio web oficial de PHP (https://www.php.net/downloads.php).
