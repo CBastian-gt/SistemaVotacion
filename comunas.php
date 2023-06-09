@@ -11,7 +11,7 @@ if (empty($region)) {
 $sql_comunas = "SELECT comuna_id, comuna_nombre
                 FROM comunas
                 INNER JOIN provincias On provincias.provincia_id = comunas.provincia_id
-                WHERE region_id = ". $region . " ORDER BY comuna_nombre";
+                WHERE region_id = " . $region . " ORDER BY comuna_nombre";
 $result_comunas = $conn->query($sql_comunas);
 $html = '<option value="">Selecciona una comuna</option>';
 if ($result_comunas->num_rows > 0) {
