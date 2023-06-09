@@ -1,24 +1,21 @@
-# Proyecto de Votación en Línea
+# Proyecto FV
 
 ## Descripción
+Este proyecto es una aplicación web desarrollada en PHP que permite realizar votaciones en línea.
+Los usuarios pueden registrar sus votos por diferentes candidatos y se almacenan en una base de datos MySQL.
 
-Este proyecto es un sistema de votación en línea desarrollado en PHP, JavaScript y MySQL.
-Proporciona una plataforma donde los usuarios pueden emitir sus votos de forma segura y eficiente.
+## Instalación
+1. Clona el repositorio del proyecto.
+2. Configura un entorno de desarrollo local con PHP 8.2.4 y MySQL.
+3. Importa la base de datos incluida en el archivo `formulariovotacion.sql`.
+4. Abre el archivo `conexion.php` y actualiza la configuración de conexión a la base de datos con los datos correspondientes a tu entorno.
+5. Abre un navegador web y accede a la ruta del proyecto para iniciar la aplicación.
 
-## Características
-
-- Registro de votantes con validación de datos como RUT, nombre, correo electrónico y etc..
-- Selección de candidatos para emitir el voto.
-- Opción para elegir la región y comuna del votante.
-- Registro y control de votos para evitar duplicaciones.
-- Registro de la fuente de referencia mediante checkbox.
-- Validaciones en tiempo real utilizando JavaScript e PHP.
-- Interfaz amigable y responsive para una mejor experiencia de usuario.
+## Requisitos
+- PHP 8.2.4
+- XAMPP (o cualquier otro servidor web que admita PHP)
+- MySQL
 
 ## Créditos
-
-Este proyecto fue desarrollado por Carlos Gallardo.
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, puedes contactarme en cbastian.toro@gmail.com.
+Autor: Carlos Gallardo
+Fecha de creación: 08-06-2023
