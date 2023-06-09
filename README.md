@@ -14,7 +14,7 @@ Los usuarios pueden registrar sus votos por diferentes candidatos y se almacenan
 ## Requisitos
 - PHP 8.2.4
 - XAMPP (o cualquier otro servidor web que admita PHP)
-- MySQL
+- MariaDB 10.4.28
 
 ## Créditos
 Autor: Carlos Gallardo
