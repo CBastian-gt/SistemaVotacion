@@ -1,4 +1,4 @@
-# Proyecto Formulario de Votaciones
+# Formulario de Votaciones
 
 ## Descripción
 Este proyecto es una aplicación web desarrollada en PHP que permite realizar votaciones en línea.
