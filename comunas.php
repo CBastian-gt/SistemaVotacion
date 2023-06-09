@@ -20,5 +20,3 @@ if ($result_comunas->num_rows > 0) {
     }
 }
 echo $html;
-
-?>
