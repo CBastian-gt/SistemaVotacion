@@ -516,4 +516,4 @@ INSERT INTO candidatos (id_candidato, nombre_candidato)
 VALUES
 	(1,'Gabriel Boric'),
 	(2,'Sebastian Piñera'),
-  (3,'Jose Antonio Kast');
+  	(3,'Jose Antonio Kast');
