@@ -9,8 +9,8 @@ body {
 }
 
 #formContainer {
-  width: 600px;
-  padding: 55px;
+  width: 740px;
+  padding: 60px;
   background-color: #f4f4f4;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@ body {
 
 label {
   display: inline-block;
-  width: 120px;
+  width: center;
   margin-bottom: 10px;
 }
 
