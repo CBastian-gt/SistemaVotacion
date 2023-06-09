@@ -9,7 +9,6 @@ $( document ).ready(function() {
                 alert(response);
             }
         });
-
     });
 
     $('#region').on('change', function() {
