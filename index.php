@@ -5,7 +5,6 @@ require_once 'bd/conexion.php';
 ?>
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>Formulario de Votación</title>
   <!-- Required meta tags -->
@@ -95,5 +94,4 @@ require_once 'bd/conexion.php';
   </div>
 
 </body>
-
 </html>
