@@ -7,6 +7,7 @@ $( document ).ready(function() {
             type:  'post', 
             success:  function (response) {
                 alert(response);
+                window.location.href = 'index.php';
             }
         });
     });
