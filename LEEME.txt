@@ -1,27 +1,34 @@
-# Instrucciones de instalación
+=============================
+LEEME.TXT - Instrucciones de Instalación
+=============================
 
-Este archivo contiene las instrucciones necesarias para instalar y configurar el proyecto.
+Versión de PHP: 8.2.4
+Base de datos: MySQL
 
-## Requisitos previos
+1. Requisitos previos:
+   - Asegúrate de tener instalado PHP 8.2.4 en tu servidor. Puedes descargar la última versión de PHP desde el sitio web oficial de PHP (https://www.php.net/downloads.php).
+   - Configura un servidor web compatible con PHP. Recomendamos utilizar XAMPP, que incluye Apache y MySQL. Puedes descargar XAMPP desde su sitio web oficial (https://www.apachefriends.org).
 
-- Versión de PHP: 8.2.4.
-- Base de datos: MySQL
+2. Descarga el proyecto:
+   - Clona o descarga el repositorio del proyecto desde https://github.com/CBastian-gt/SistemaVotacion
+   - Extrae los archivos en el directorio de tu servidor web local.
 
-## Pasos de instalación
+3. Configuración de la base de datos:
+   - Abre el panel de control de XAMPP y asegúrate de que los servicios de Apache y MySQL estén activos.
+   - Accede a phpMyAdmin desde el panel de control de XAMPP o ingresando la siguiente URL en tu navegador: http://localhost/phpmyadmin
+   - Crea una nueva base de datos con el nombre que desees para el proyecto.
+   - Importa el archivo `formulariovotacion.sql` incluido en el proyecto en la base de datos recién creada.
+    Puedes hacerlo desde phpMyAdmin seleccionando la base de datos y utilizando la opción de importar.
 
-1. Clona o descarga el repositorio del proyecto desde [URL del repositorio].
-2. Configura tu entorno de desarrollo para ejecutar PHP 8.2.4.
-3. Importa el archivo formulariovotacion.sql en tu base de datos para crear las tablas necesarias (MySQL).
-4. Abre el archivo de configuración de la base de datos formulariovotacion.sql y actualiza los datos de conexión con los correspondientes a tu entorno.
-5. Abre el archivo [nombre del archivo principal] y actualiza los valores de configuración necesarios, como la URL base del proyecto.
-6. Abre una terminal y navega hasta el directorio del proyecto.
-7. Ejecuta el siguiente comando para instalar las dependencias del proyecto: composer install
-8. Ejecuta el servidor web en tu entorno de desarrollo.
-9. Accede al proyecto desde tu navegador web.
+4. Iniciar la aplicación:
+   - Abre un navegador web y accede a la dirección local de tu servidor web, por ejemplo: http://localhost/proyecto.
+   - La aplicación debería cargarse y estar lista para su uso.
 
-## Contacto y soporte
+¡Enhorabuena! Has completado la instalación y configuración del proyecto.
+Ahora puedes disfrutar de todas las características de la aplicación.
 
-Si tienes alguna pregunta o necesitas ayuda durante la instalación, no dudes en contactarnos en cbastian.toro@gmail.com
+Versión de PHP utilizada: 8.2.4
+Base de datos utilizada: MySQL
 
 
 
