@@ -88,14 +88,14 @@ if (count($como_se_entero) < 2) {
 
 
 if ($valido) {
-
     // Convertir el array en una cadena separada por comas
     $como_se_entero_str = implode(", ", $como_se_entero);
     $sql = "INSERT INTO votaciones (nombre_apellido, alias, rut, email, region, comuna, candidato, como_se_entero)
         VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero_str')";
 
     if ($conn->query($sql) === TRUE) {
-        Header("Location: index.php");
+        echo "Se ha registrado su voto correctamente.";
+        echo "<script>document.getElementById('formVotacion').reset();</script>";
     } else {
         echo "Error al insertar el registro: " . $conn->error;
     }
