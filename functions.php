@@ -25,9 +25,6 @@ function validarRut($rut)
 	return $dv == $dvEsperado;
 }
 
-
-
-// Función para validar el alias
 function validarAlias($alias)
 {
 	// Verificar la longitud del alias
