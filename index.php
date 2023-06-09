@@ -3,87 +3,77 @@
 require_once 'bd/conexion.php';
 
 ?>
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Formulario de Votación</title>
-    <style>
-        label {
-        display: block;
-        margin-bottom: 10px;
-        }
-    </style>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>Formulario de Votación</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/formulario.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/form.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/formulario.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="js/form.js"></script>
 </head>
-  <body>
 
-<div id="formContainer">
-  <h1>Formulario de Votación</h1>
-  <form id="votingForm" action="process.php" method="POST">
+<body>
+  <div id="formContainer">
+    <h1>Formulario de Votación</h1>
+    <form id="votingForm" action="process.php" method="POST">
 
-    <label for="nombre">Nombre y Apellido:</label>
-    <input type="text" id="nombre_apellido" name="nombre_apellido"><br>
+      <label for="nombre">Nombre y Apellido:</label>
+      <input type="text" id="nombre_apellido" name="nombre_apellido"><br>
 
-    <label for="alias">Alias:</label>
-    <input type="text" id="alias" name="alias"><br>
+      <label for="alias">Alias:</label>
+      <input type="text" id="alias" name="alias"><br>
 
-    <label for="rut">RUT:</label>
-    <input type="text" id="rut" name="rut"><br>
+      <label for="rut">RUT:</label>
+      <input type="text" id="rut" name="rut"><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email"><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br>
 
 
-    <label for="region">Región:</label>
-    <select id="region" name="region">
+      <label for="region">Región:</label>
+      <select id="region" name="region">
         <option value="">Selecciona una región</option>
         <?php
         // Obtener las opciones de las regiones desde la base de datos
         $sql_regiones = "SELECT region_id, region_nombre FROM regiones";
         $result_regiones = $conn->query($sql_regiones);
         if ($result_regiones->num_rows > 0) {
-            while ($row = $result_regiones->fetch_assoc()) {
-                echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
-            }
+          while ($row = $result_regiones->fetch_assoc()) {
+            echo "<option value='" . $row['region_id'] . "'>" . $row['region_nombre'] . "</option>";
+          }
         }
         ?>
-    </select><br>
-
-    <label for="comuna">Comuna:</label>
-    <select id="comuna" name="comuna">
+      </select><br>
+      <label for="comuna">Comuna:</label>
+      <select id="comuna" name="comuna">
         <option value="">Selecciona una comuna</option>
-    </select><br>
+      </select><br>
 
-
-    <?php
-    // Obtener las opciones de los candidatos desde la base de datos
-    $sql_candidatos = "SELECT id_candidato, nombre_candidato FROM candidatos";
-    $result_candidatos = $conn->query($sql_candidatos);
-    ?>
+      <?php
+      // Obtener las opciones de los candidatos desde la base de datos
+      $sql_candidatos = "SELECT id_candidato, nombre_candidato FROM candidatos";
+      $result_candidatos = $conn->query($sql_candidatos);
+      ?>
 
       <label for="candidato">Candidato:</label>
       <select id="candidato" name="candidato">
         <option value="">Selecciona un candidato</option>
         <?php
-            if ($result_candidatos->num_rows > 0) {
-                while ($row = $result_candidatos->fetch_assoc()) {
-                echo "<option value='" . $row['id_candidato'] . "'>" . $row['nombre_candidato'] . "</option>";
-                }
-            }
+        if ($result_candidatos->num_rows > 0) {
+          while ($row = $result_candidatos->fetch_assoc()) {
+            echo "<option value='" . $row['id_candidato'] . "'>" . $row['nombre_candidato'] . "</option>";
+          }
+        }
         ?>
       </select><br>
 
@@ -104,5 +94,6 @@ require_once 'bd/conexion.php';
     </form>
   </div>
 
-  </body>
+</body>
+
 </html>
