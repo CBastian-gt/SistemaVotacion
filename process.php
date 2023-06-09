@@ -94,8 +94,7 @@ if ($valido) {
         VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero_str')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Se ha registrado su voto correctamente.";
-        echo "<script>document.getElementById('formVotacion').reset();</script>";
+        echo "Se ha registro su voto correctamente.";
     } else {
         echo "Error al insertar el registro: " . $conn->error;
     }
