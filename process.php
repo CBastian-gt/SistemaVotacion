@@ -11,9 +11,7 @@ $region = $_POST["region"];
 $comuna = $_POST["comuna"];
 $candidato = $_POST["candidato"];
 $como_se_entero = isset($_POST["como_se_entero"]) ? $_POST["como_se_entero"] : [];
-
 $valido = true;
-
 
 if (empty($nombre_apellido)) {
     echo "El nombre y apellido no puede quedar en blanco. \n";
@@ -39,8 +37,6 @@ if (!empty($rut)) {
         }
     }
 }
-
-
 
 // Validar el rut
 if (!validarRut($rut)) {
@@ -77,15 +73,11 @@ if (!is_array($como_se_entero)) {
     $como_se_entero = [$como_se_entero];
 }
 
-
 // Validar como_se_entero
 if (count($como_se_entero) < 2) {
     echo "Por favor, selecciona al menos dos opciones en \"Como se enteró de Nosotros\".";
     $valido = false;
 }
-
-
-
 
 if ($valido) {
     // Convertir el array en una cadena separada por comas
@@ -94,7 +86,7 @@ if ($valido) {
         VALUES ('$nombre_apellido', '$alias', '$rut', '$email', '$region', '$comuna', '$candidato', '$como_se_entero_str')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Se ha registro su voto correctamente.";
+        echo "Se ha registrado su voto correctamente.";
     } else {
         echo "Error al insertar el registro: " . $conn->error;
     }
