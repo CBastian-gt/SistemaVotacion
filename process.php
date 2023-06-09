@@ -30,17 +30,17 @@ if (!validarAlias($alias)) {
 if (!empty($rut)) {
     $sql_duplicados = "SELECT COUNT(*) AS count FROM votaciones WHERE rut = '$rut'";
     $result_duplicados = $conn->query($sql_duplicados);
-
     if ($result_duplicados && $result_duplicados->num_rows > 0) {
         $row = $result_duplicados->fetch_assoc();
         $count = $row['count'];
-
         if ($count > 0) {
             echo "El RUT ingresado ya ha votado. \n";
             $valido = false;
         }
     }
 }
+
+
 
 // Validar el rut
 if (!validarRut($rut)) {
